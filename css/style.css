@@ -1,0 +1,341 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background: radial-gradient(circle at center, #000033, #1b003b 80%, #0d001a);
+    color: #ffffff;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: transparent; 
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.881);
+    box-shadow: 0 0 20px rgba(248, 248, 248, 0.5);
+}
+
+header h1 {
+    margin: 0;
+    letter-spacing: 1px; 
+}
+
+h2 {
+    margin: 0;
+    font-size: 2em;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1em;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #a2ffda; 
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffff99; 
+}
+
+nav ul li a.active {
+    color: #ffff99;
+}
+
+.skip {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #00ff99; 
+    color: #000; 
+    padding: 8px;
+    transition: top 0.3s;
+    z-index: 100;  
+    font-weight: bold;
+}
+
+.skip:focus, .skip:hover {
+    top: 10px; 
+    left: 10px; 
+    outline: 3px solid #ffff99; 
+    text-decoration: none; 
+}
+
+.intro {
+    background-color: rgba(26, 26, 26, 0.9); 
+    padding: 2em;
+    text-align: center;
+    border: 1px solid #00ff99; 
+    border-radius: 10px;
+    margin-top: 2em;
+    box-shadow: 0 0 30px rgba(0, 255, 153, 0.5);
+    width: 80%;
+    margin: 2em auto; 
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    margin: 2em auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-card {
+    flex: 0 0 20%;
+    margin: 0 1%; 
+    padding: 2em; 
+    background: #2b2b2b;
+    text-align: center;
+    opacity: 0.5;
+    transform: scale(0.5);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, border-radius 0.5s;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+}
+
+#jacks-card {
+    border: 3px solid #e1ff00; 
+    box-shadow: 0 0 30px rgba(225, 255, 0, 0.5);
+}
+
+#lukes-card {
+    border: 3px solid #00eaff; 
+    box-shadow: 0 0 30px rgba(0, 234, 255, 0.5);
+}
+
+#livs-card {
+    border: 3px solid #ff00f3; 
+    box-shadow: 0 0 30px rgba(255, 0, 243, 0.5);
+}
+
+.carousel-card:active {
+    cursor: grabbing; 
+}
+
+.carousel-card.active {
+    transform: scale(1);
+    z-index: 1;
+    opacity: 1;
+}
+
+.carousel-card.prev,
+.carousel-card.next {
+    transform: scale(0.8);
+    opacity: 0.75;
+    z-index: 0;
+}
+
+.carousel-card:hover {
+    border-radius: 50%; 
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em; 
+    gap: 1em; 
+}
+
+.carousel-button {
+    background: #24255c;
+    color: white;
+    border: none;
+    padding: 0.5em;
+    cursor: pointer;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    height: 1.5em;
+}
+
+.carousel-button span {
+    font-size: 1.5em;
+}
+
+.carousel-button:hover {
+
+    border: solid 1px #00ff99;
+    box-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+}
+
+.card-details {
+    text-align: center;
+    padding: 2em;
+    background-color: rgba(26, 26, 26, 0.9); 
+    border: 1px solid #00ff99;
+    border-radius: 10px;
+    width: 80%;
+    margin: 2em auto; 
+    box-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s; 
+}
+
+.card-details .details {
+    display: none; 
+}
+
+.card-details .details.active {
+    display: block; 
+}
+
+.card-details.jack {
+    border-color: #e1ff00;
+    box-shadow: 0 0 20px rgba(225, 255, 0, 0.5);
+}
+
+.card-details.luke {
+    border-color: #00eaff;
+    box-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
+}
+
+.card-details.liv {
+    border-color: #ff00f3;
+    box-shadow: 0 0 20px rgba(255, 0, 243, 0.5);
+}
+
+.overview {
+    background-color: rgba(26, 26, 26, 0.9); 
+    padding: 2em;
+    text-align: center;
+    border: 1px solid #00ff99; 
+    border-radius: 10px;
+    margin: 2em auto; 
+    width: 80%;
+    box-shadow: 0 0 30px rgba(0, 255, 153, 0.5);
+}
+
+.artists .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    gap: 2em;
+    padding: 2em;
+}
+
+.artists .grid .artist {
+    background-color: rgba(43, 43, 43, 0.8);
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    min-height: 400px;
+}
+
+.artists .grid .artist img {
+    max-width: 80%;
+    height: fit-content;
+    border-radius: 10px;
+}
+
+.artists .grid .artist iframe {
+    margin-top: 1em;
+    border-radius: 10px;
+}
+
+.carousel-card .artist-snippet {
+    margin-top: 1em;
+}
+
+.carousel-card .artist-snippet img {
+    max-width: 90%;
+    border-radius: 20px;
+}
+
+.carousel-card .artist-snippet p {
+    margin: 1em 0 0; 
+    font-size: 1em; 
+    color: #ffffff; 
+}
+
+.artists .grid .artist:hover {
+    background-color: rgba(43, 43, 43, 0.9);
+    box-shadow: 0 0 30px rgba(252, 252, 252, 0.5);
+    transform: scale(1.05);
+}
+
+
+.myartists .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+    padding: 2em;
+
+}
+
+.myartists .grid .artist {
+    background-color: rgba(43, 43, 43, 0.8);
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.myartists .grid .artist img {
+    max-width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+}
+
+
+
+.myartists p{
+    background-color: rgba(26, 26, 26, 0.9); 
+    padding: 2em;
+    text-align: center;
+    border: 1px solid #00ff99;
+    border-radius: 10px;
+    margin: 2em auto; 
+    width: 80%;
+    box-shadow: 0 0 30px rgba(0, 255, 153, 0.5);
+}
+
+.explore-more {
+    color: #fdfdfd;
+    background-color: transparent;
+    border: 1px solid #86c6a6;
+    box-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+    border-radius: 5px;
+    padding: 0.5em;
+    margin-top: 20px;
+    font-size: medium;
+}
+
+.explore-more:hover {
+    background-color: #a1d9bd;
+    color: #000000;
+}
