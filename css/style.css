@@ -24,18 +24,23 @@ header {
 header h1 {
     margin: 0;
     letter-spacing: 1px; 
+    background-color: #000;
 }
 
 h2 {
     margin: 0;
     font-size: 2em;
     text-align: center;
+    background-color: #1b003b; 
 }
+
+
 
 nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    background-color: black;
 }
 
 nav ul {
@@ -44,6 +49,7 @@ nav ul {
     display: flex;
     gap: 1em;
     margin: 0;
+    background-color: black;
 }
 
 nav ul li {
@@ -288,6 +294,10 @@ nav ul li a.active {
     transform: scale(1.05);
 }
 
+.artist .grid h3 {
+    background-color: #1b003b;
+}
+
 
 .myartists .grid {
     display: grid;
@@ -324,6 +334,10 @@ nav ul li a.active {
     box-shadow: 0 0 30px rgba(0, 255, 153, 0.5);
 }
 
+.myartists h3 {
+    background-color: #1b003b;
+}
+
 .explore-more {
     color: #fdfdfd;
     background-color: transparent;
@@ -338,4 +352,8 @@ nav ul li a.active {
 .explore-more:hover {
     background-color: #a1d9bd;
     color: #000000;
+}
+
+footer {
+    background-color: #140024;
 }
